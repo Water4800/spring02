@@ -6,6 +6,9 @@ import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * 实现定时任务
+ */
 public class TimerTest {
 
     public static void main(String[] args) throws ParseException {
