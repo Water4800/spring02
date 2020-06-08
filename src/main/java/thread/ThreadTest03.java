@@ -1,6 +1,7 @@
 package thread;
 
 import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 
 /**
@@ -9,7 +10,7 @@ import java.util.concurrent.FutureTask;
  */
 public class ThreadTest03 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
 
         //创建一个未来任务类对象
         //给一个Callable接口实现类对象
@@ -27,7 +28,16 @@ public class ThreadTest03 {
 
         //创建线程对象
         Thread t = new Thread(task);
-        task.run();
+
+        //启动线程
+        t.run();
+
+        //get()方法执行，会导致当前线程阻塞
+        //可以拿到线程的返回结果
+        Object obj = task.get();
+        System.out.println(obj);
+
+
 
     }
 
